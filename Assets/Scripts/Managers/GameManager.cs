@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject gameOverCanvas;
     public static GameManager instance;
     [SerializeField] private int score = 0;
 
@@ -17,10 +19,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        gameOverCanvas.SetActive(false);
+    }
+
     public void AddScore(int points)
     {
         score += points;
-        Debug.Log("Score" + score);
     }
 
     public int GetScore()
@@ -33,9 +39,17 @@ public class GameManager : MonoBehaviour
         score = 0;
     }
 
+    public void ReloadScene()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     public void GameOver()
     {
-        Debug.Log("Game over! Final score" + score);
+        Debug.Log("Game over! Final score: " + score);
+        gameOverCanvas.SetActive(true);
+        FindFirstObjectByType<UIManager>().ShowFinalScore();
         Time.timeScale = 0f;
     }
 }

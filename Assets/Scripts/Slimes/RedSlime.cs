@@ -7,4 +7,10 @@ public class RedSlime : Slime
         player.TakeDamage();
         Destroy(gameObject);
     }
+
+    protected override void HandleMiss()
+    {
+        Debug.Log("Hamrful slime avoided :)");
+        Destroy(gameObject);
+    }
 }

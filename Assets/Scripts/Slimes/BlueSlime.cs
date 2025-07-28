@@ -5,7 +5,7 @@ public class BlueSlime : Slime
     protected override void Start()
     {
         base.Start();
-        speed = 5f;
+        speed = 4f;
     }
     protected override void HandleCatch()
     {

@@ -5,6 +5,7 @@ public class PurpleSlime : Slime
 
     protected override void Start()
     {
+        base.Start();
         speed = 1.8f;
     }
 

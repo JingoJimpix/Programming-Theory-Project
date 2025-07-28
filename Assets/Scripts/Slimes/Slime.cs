@@ -40,7 +40,7 @@ public class Slime : MonoBehaviour
 
     protected virtual void HandleMiss()
     {
-        //player.TakeDamage();
+        player.TakeDamage();
         Destroy(gameObject);
         Debug.Log("Slime missed D:");
     }
