@@ -24,6 +24,14 @@ public class GameManager : MonoBehaviour
         gameOverCanvas.SetActive(false);
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ReloadScene();
+        }
+    }
+
     public void AddScore(int points)
     {
         score += points;
