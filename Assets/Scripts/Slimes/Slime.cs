@@ -26,7 +26,7 @@ public class Slime : MonoBehaviour
         {
             HandleCatch();
         }
-        if (other.CompareTag("Sensor"))
+        else if (other.CompareTag("Sensor"))
         {
             HandleMiss();
         }
@@ -34,13 +34,13 @@ public class Slime : MonoBehaviour
 
     protected virtual void HandleCatch()
     {
-        GameManager.instance.AddScore(10);
         Destroy(gameObject);
+        Debug.Log("Slime caught :D");
     }
 
     protected virtual void HandleMiss()
     {
-        player.TakeDamage();
+        //player.TakeDamage();
         Destroy(gameObject);
         Debug.Log("Slime missed D:");
     }

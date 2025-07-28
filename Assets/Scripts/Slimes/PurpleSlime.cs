@@ -10,7 +10,7 @@ public class PurpleSlime : Slime
 
     protected override void HandleCatch()
     {
+        base.HandleCatch();
         GameManager.instance.AddScore(5);
-        Destroy(gameObject);
     }
 }
