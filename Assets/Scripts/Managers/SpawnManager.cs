@@ -4,6 +4,7 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] slimePrefabs;
 
+    //Encapsulation: Most variables of the project are private/protected and are serialized for easy inspector editting if needed.
     [Header("Settings")]
     [SerializeField] private float spawnInterval = 1.5f;
     [SerializeField] private float minX = -8f;

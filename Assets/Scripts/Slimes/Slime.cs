@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Slime : MonoBehaviour
 {
+    //Inheritance: Slime parent class that feeds the rest of slime child classes
+    //Polymorphism: Slime childs all behave differently based on method overriding
     [SerializeField] protected float speed = 3f;
     protected Player player;
 
@@ -20,6 +22,7 @@ public class Slime : MonoBehaviour
         transform.Translate(Vector2.down * speed * Time.deltaTime);
     }
 
+//Abstraction: Complext method, handled in the update via a simpler method
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -31,13 +34,13 @@ public class Slime : MonoBehaviour
             HandleMiss();
         }
     }
-
+//Abstraction: Complext method, handled in the update via a simpler method
     protected virtual void HandleCatch()
     {
         Destroy(gameObject);
         Debug.Log("Slime caught :D");
     }
-
+//Abstraction: Complext method, handled in the update via a simpler method
     protected virtual void HandleMiss()
     {
         player.TakeDamage();

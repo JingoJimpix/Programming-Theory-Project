@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     {
         score += points;
     }
-
+//Encapsulation: public access for score, but only game manager class can modify
     public int GetScore()
     {
         return score;
