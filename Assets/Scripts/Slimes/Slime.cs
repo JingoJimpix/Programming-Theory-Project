@@ -2,7 +2,13 @@ using UnityEngine;
 
 public class Slime : MonoBehaviour
 {
-    [SerializeField] private float speed = 3f;
+    [SerializeField] protected float speed = 3f;
+    protected Player player;
+
+    protected virtual void Start()
+    {
+        player = FindFirstObjectByType<Player>();
+    }
 
     protected virtual void Update()
     {
@@ -11,12 +17,7 @@ public class Slime : MonoBehaviour
 
     protected virtual void Move()
     {
-         transform.Translate(Vector2.down * speed * Time.deltaTime);
-
-        if (transform.position.y < -5.5f)
-        {
-            Destroy(gameObject);
-        }
+        transform.Translate(Vector2.down * speed * Time.deltaTime);
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
@@ -25,12 +26,23 @@ public class Slime : MonoBehaviour
         {
             HandleCatch();
         }
+        if (other.CompareTag("Sensor"))
+        {
+            HandleMiss();
+        }
     }
 
     protected virtual void HandleCatch()
     {
         GameManager.instance.AddScore(10);
         Destroy(gameObject);
+    }
+
+    protected virtual void HandleMiss()
+    {
+        player.TakeDamage();
+        Destroy(gameObject);
+        Debug.Log("Slime missed D:");
     }
 
 }

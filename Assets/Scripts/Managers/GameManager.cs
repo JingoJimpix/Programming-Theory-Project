@@ -30,6 +30,12 @@ public class GameManager : MonoBehaviour
 
     public void ResetScore()
     {
-        score = 0; 
+        score = 0;
+    }
+
+    public void GameOver()
+    {
+        Debug.Log("Game over! Final score" + score);
+        Time.timeScale = 0f;
     }
 }
