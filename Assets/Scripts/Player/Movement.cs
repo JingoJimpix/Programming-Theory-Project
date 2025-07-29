@@ -9,6 +9,7 @@ public class Movement : Player
         HandleMove();
     }
 
+//Abstraction: Complext method, handled in the update via a simpler method
     void HandleMove()
     {
         float input = Input.GetAxisRaw("Horizontal");

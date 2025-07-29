@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     {
         GameManager.instance.GameOver();
     }
-
+//Encapsulation: public access for lives, but only player class can modify
     public int GetLives()
     {
         return lives;
